@@ -159,10 +159,10 @@ You added 50 new features and fixed 20 bugs over the last month. $\rightarrow$ V
 
 The Correct Terminal Sequence:
 
-**Bashgit --version**               # Verify Git is installed
-**git clone <repository_link>**     # Download the project from GitHub
-**cd directory**                    # Move inside the project folder FIRST
-**git status**                      # Check file changes safely
+**Bashgit --version**               
+**git clone <repository_link>**     
+**cd directory**                    
+**git status**                      
 
 
 🚦 File Lifecycles & States -> When we run git status, files are categorized into distinct tracking states:
