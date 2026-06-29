@@ -193,3 +193,28 @@ We must do this routinely to document oour daily coding progress.
 Once our local snapshots are committed,we can send them up to the cloud: **Bashgit push**
 Because we cloned this repository directly from GitHub, our local system already tracks the remote destination automatically. Running git push updates our cloud profile instantly.
 
+----------------------------------------------------------------------------------------------------------------------------
+
+**Scenario 2 : Linking a Local Project Folder to github repository**
+
+Unlike the previous scenario where the developer uses an existing project and clones it to his local system , make changes and push it back to his github repo the scenario 2 is mainly about understanding the process and the commands used to upload a local project folder to his github account.
+
+Intially consider a Developer who is making a project using any of the text editors in his local system. Usually the github repository can only be linked to a git folder which is being tracked by the git and not by any local folder. So , for this the developer needs to first convert the local folder to a git folder using the command **git init** . Init command is mainly used to convert an existing local folder in the local system to a git folder.Now this folder is being tracked by git.
+
+The developer then can create a repo in his github account.
+[Note: It is recommended not to even enable a readme file in the github while creating a repo.Instead create a one in ur local system. ]
+The developer has  converted the local folder to a git folder but the folder is not yet  linked to the github repo.
+For connecting or linking the git projrct folder  to the particular github repo we need to use a command
+**git remote add origin <"Link of the repo">**
+
+Now all the changes developer make in his local system will be done will be linked to the repo.
+
+**git remote -v** This command is mainly used to check whether the connected repository is correct or not.
+
+
+
+
+
+
+
+
