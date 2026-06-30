@@ -211,6 +211,238 @@ Now all the changes developer make in his local system will be done will be link
 
 **git remote -v** This command is mainly used to check whether the connected repository is correct or not.
 
+----------------------------------------------------------------------------------------------------------------------------
+
+Git Branch
+
+What is a Branch?
+A branch is a separate line of development inside a Git repository.
+It allows developers to work on new features or changes without affecting the main/stable code.
+Example:
+You have a project:
+
+main branch
+A ---- B ---- C
+
+Here:
+
+main contains the stable version of the project
+Every commit represents a saved version
+
+Now you want to add a login feature.
+
+Instead of changing main directly, create a new branch:
+
+              login-feature
+                    |
+A ---- B ---- C ---- D ---- E
+                    |
+                  main
+
+Now:
+
+main → original stable code
+login-feature → development code
+
+After completing the feature, it can be merged back into main.
+
+2. Check Current Branch:[Syntax ->**git branch**]
+Explanation: Displays all branches available in the repository.
+Example output:
+* main
+  login-feature
+
+Meaning: * indicates the branch you are currently working on
+Current branch = main
+
+3. Create a New Branch: [Syntax->**git branch  branch_name**
+
+Example: git branch  login
+Explanation: Creates a new branch called login.
+
+Before:
+
+main
+A ---- B ---- C
+
+After:
+
+              login
+                |
+A ---- B ---- C
+                |
+              main
+
+[Important: Creating a branch does not move you into that branch.You are still on main.]
+
+4. Switch to a Branch:[Syntax->**git checkout branch_name**]
+
+Example: git checkout login
+
+Explanation: Moves your working area from one branch to another.
+
+Before:
+* main
+  login
+
+After:
+  main
+* login
+
+Now all changes you make will happen inside login branch.
+
+5. Create and Switch Branch Together:[Syntax->**git checkout -b branch_name**]
+
+Example: git checkout -b payment
+
+Explanation
+This performs two actions:
+
+Creates a new branch
+Automatically switches to it
+
+Instead of:
+git branch payment
+git checkout payment
+
+You can do both together:
+git checkout -b payment
+
+
+6. Rename a Branch: [Syntax-> **git branch -m new_branch_name**]
+
+Example:
+git branch -m development
+Explanation
+
+Changes the name of the current branch.
+
+Example:
+Before:
+master
+
+After:
+development
+
+
+7. Delete a Branch:[**Syntax->  git branch -d branch_name**]
+
+Example:
+git branch -d login
+
+Explanation
+Deletes a branch after its work is completed.
+
+Example:
+main
+ |
+ |
+merged login feature
+ |
+delete login branch
+
+The code remains in main after merging.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+!) Merge Branches
+
+What is Merge?
+Merge is used to combine changes from one branch into another branch.
+
+Example:
+
+Main:
+
+main
+
+A ---- B ---- C
+
+Feature branch:
+
+login
+
+A ---- B ---- C ---- D ---- E
+
+Now login feature is complete.
+
+Move to main:
+git checkout main
+
+Merge:
+git merge login
+
+Result:
+
+A ---- B ---- C ---- D ---- E
+                    |
+                  main
+
+Now main contains login changes.
+
+2) Automatic Merge: Git performs automatic merge when it can combine changes without confusion.
+Example:
+
+Main branch:
+System.out.println("Hello");
+
+Feature branch:
+System.out.println("Welcome");
+
+If changes are in different places:
+
+file1.java  → changed by main
+file2.java  → changed by feature
+
+Git understands and merges automatically.
+No manual work needed.
+
+3) Merge Conflict
+What is Merge Conflict?
+A merge conflict occurs when Git cannot decide which change to keep.
+
+Example:
+Main branch:
+System.out.println("Hello");
+
+Feature branch:
+System.out.println("Hi");
+
+Both modified the same line.
+
+Git gets confused:
+
+Which one should I keep?
+Hello or Hi?
+
+So Git marks:
+
+<<<<<<< HEAD
+Hello
+=======
+Hi
+>>>>>>> login
+
+Resolving Merge Conflict
+
+You manually edit the file.
+
+Example:
+Keep:
+System.out.println("Hello Hi");
+Then tell Git:
+
+Step 1
+git add .
+Meaning: "Conflict is solved, prepare this file."
+
+Step 2
+git commit -m "Resolved merge conflict"
+
+Meaning: Save the conflict resolution.
+
+
+
 
 
 
