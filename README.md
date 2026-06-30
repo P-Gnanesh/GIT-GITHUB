@@ -418,10 +418,12 @@ Hello or Hi?
 So Git marks:
 
 <<<<<<< HEAD
+
 Hello
 =======
 Hi
->>>>>>> login
+
+<<<<<<< login
 
 Resolving Merge Conflict
 
