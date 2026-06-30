@@ -433,6 +433,70 @@ git commit -m "Resolved merge conflict"
 
 Meaning: Save the conflict resolution.
 
+---------------------------------------------------------------------------------------------------------------------------
+
+The confusion is usually between git merge in terminal and Pull Request merge on GitHub. Both do the same basic thing (combine branches), but the place where you do it is different.
+
+**Scenario 1: When do we use git merge in terminal?**
+
+You use: [Syntax->**git merge branch_name**]
+when you want to merge one branch into another locally on your computer.
+
+Example Scenario (Terminal Merge)
+
+You are working alone.
+
+main: A---B---C
+feature:A---B---C---D---E
+
+Your feature is complete.
+
+Step 1: Move to the branch where you want the changes. You want feature code inside main.
+
+So go to main:
+
+git checkout main
+
+Now:
+* main
+  feature
+
+Step 2: Merge feature branch
+
+Run: [Syntax->**git merge feature**]
+
+Now:
+A---B---C---D---E
+                 |
+                main
+
+The feature code is now inside main.
+
+Step 3: Push updated main to GitHub
+
+[Syntax-> **git push origin main**]
+
+Now GitHub also gets the merged code.
+
+**Scenario2: When do we use Pull Request instead?**
+
+In team projects.
+
+Example: Developer A: main
+         Developer B: feature-login
+
+Developer B does:git push origin feature-login
+
+Then creates a Pull Request:feature-login  --->  main
+The team reviews it. Then GitHub merges it.
+
+Difference
+
+Terminal Merge	Pull Request: Done locally	Done on GitHub.
+Developer decides merge	Team reviews before merge
+Command: git merge	Button: "Merge Pull Request"
+Mostly used alone/small projects	Used in companies.
+
 
 
 
