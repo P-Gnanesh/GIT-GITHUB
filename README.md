@@ -415,16 +415,6 @@ Git gets confused:
 Which one should I keep?
 Hello or Hi?
 
-So Git marks:
-
-<<<<<<< HEAD
-
-Hello
-=======
-Hi
-
-<<<<<<< login
-
 Resolving Merge Conflict
 
 You manually edit the file.
